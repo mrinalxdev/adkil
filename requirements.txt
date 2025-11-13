@@ -1,0 +1,6 @@
+Django==4.2.11
+djangorestframework==3.14.0
+redis==5.0.1
+rq==1.15.1
+mutagen==1.47.0
+django-rq==2.8.0
