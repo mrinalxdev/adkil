@@ -1,0 +1,14 @@
+[project]
+name = "adkil"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "django==4.2.11",
+    "django-rq==2.8.0",
+    "djangorestframework==3.14.0",
+    "mutagen==1.47.0",
+    "redis==5.0.1",
+    "rq==1.15.1",
+]
