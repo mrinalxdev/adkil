@@ -5,7 +5,7 @@ from rest_framework import status
 from django_rq import enqueue
 from .models import ProcessingJob
 from .serializers import ProcessingJobSerializer, CreateJobSerializer
-from .tasks import process_job
+from .tasks import process_job, cleanup_old_artifacts
 
 class JobCreateView(APIView):
     def post(self, request, *args, **kwargs):
@@ -27,3 +27,15 @@ class JobDetailView(APIView):
         job = get_object_or_404(ProcessingJob, pk=pk)
         serializer = ProcessingJobSerializer(job)
         return Response(serializer.data)
+
+class CleanupArtifactsView(APIView):
+    def post(self, request, *args, **kwargs):
+        result = cleanup_old_artifacts()
+        return Response(result, status=status.HTTP_200_OK)
+        
+    def get(self, request, *args, **kwargs):
+         
+         return Response({
+             "message":"Use post to trigger cleanup",
+             "scheduled":"auto cleanup scheduled every 24 hours"
+         })

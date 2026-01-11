@@ -7,6 +7,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/upload/', include('apps.uploads.urls')),
     path('api/jobs/', include('apps.jobs.urls')),
+    path('django-rq/', include('django_rq.urls'))
 ]
 
 
